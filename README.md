@@ -111,7 +111,7 @@
 <!-- القسم الفريد 6: خريطة المساهمات الحرارية (Neumorphic) -->
 <h2 align="center">🔥 Contribution Heatmap (Last 30 days)</h2>
 <div align="center">
-  <img src="https://github-readme-activity-graph.vercel.app/graph?username=moathkudosense_spec&theme=github-dark&bg_color=15152a&color=bb86fc&line=c792ea&point=ffffff&area=true&hide_border=true&radius=16" width="90%" />
+  <img src="https://github-readme-activity-graph.vercel.app/graph?username=moathkudosense-spec&theme=github-dark&bg_color=15152a&color=bb86fc&line=c792ea&point=ffffff&area=true&hide_border=true&radius=16" width="90%" />
 </div>
 
 <!-- القسم الفريد 7: آخر الإنجازات + مفتاح PGP -->
