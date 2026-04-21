@@ -16,7 +16,7 @@
     <text x="440" y="85" font-family="'Segoe UI', monospace" font-size="48" fill="#ffffff" text-anchor="middle" font-weight="bold" letter-spacing="3">MOATH · معاذ</text>
     <text x="440" y="130" font-family="monospace" font-size="20" fill="#c792ea" text-anchor="middle">System Modder · Firmware Surgeon · Lua Alchemist</text>
     <text x="440" y="165" font-family="monospace" font-size="14" fill="#a0a0b0" text-anchor="middle">🔧 Sana'a, Yemen | 🎓 CS Candidate 2026 | 🧠 Low-Level Enthusiast</text>
-    <text x="440" y="195" font-family="monospace" font-size="12" fill="#8888aa" text-anchor="middle">“I Will”</text>
+    <text x="440" y="195" font-family="monospace" font-size="12" fill="#8888aa" text-anchor="middle"> </text>
   </svg>
 </div>
 
