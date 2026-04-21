@@ -1,25 +1,26 @@
-# 0xKudo / README.md
+# 0xKudo
 
-<div align="center">
-  <img src="https://capsule-render.vercel.app/render?type=soft&color=auto&height=200&section=header&text=Kudo&fontSize=70" width="100%" />
-
-  [![Typing SVG](https://readme-typing-svg.herokuapp.com?font=Fira+Code&pause=1000&color=5368FF&width=435&lines=Cybersecurity+Enthusiast;Python+Developer;Mobile+Firmware+Specialist)](https://git.io/typing-svg)
-</div>
-
-### 🛠 Tech Stack
-![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
-![Android](https://img.shields.io/badge/Android-3DDC84?style=for-the-badge&logo=android&logoColor=white)
-![Linux](https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black)
-
-### 📊 Activity & Stats
-<p align="center">
-<img height="180em" src="https://github-readme-stats.vercel.app/api?username=YOUR_USERNAME_HERE&show_icons=true&theme=tokyonight&include_all_commits=true&count_private=true"/>
-<img height="180em" src="C:\Users\DarkSidePC\Pictures\my GitHub profile.jpg"/>
-</p>
+> **Architecting secure systems at the intersection of firmware and network protocols.**
 
 ---
+
+### ⚡ Current Focus
+- 🛡️ **Cybersecurity:** Analyzing network vulnerabilities and hardening Android kernels.
+- 🐍 **Automation:** Building Python-based system tools and network scanners.
+- 📱 **Mobile:** Advanced firmware customization and CSC modification.
+
+### 🛠️ Toolbelt
+`Nmap` `Odin` `Wireshark` `ADB` `PowerShell` `Git`
+
+### 📈 Metrics
+<div align="left">
+  <img src="https://github-readme-activity-graph.vercel.app/graph?username=YOUR_USER&theme=react-dark&bg_color=0d1117&hide_border=true&color=58a6ff" width="100%" />
+</div>
+
+---
+
 <div align="center">
-  <sub>Built with precision.</sub>
+  <img src="https://quotes-github-readme.vercel.app/api?type=horizontal&theme=dracula" />
 </div>
 <!--
 **moathkudosense-spec/moathkudosense-spec** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
