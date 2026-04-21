@@ -37,21 +37,337 @@
 </div>
 
 <!-- القسم الاحترافي الفريد 1: حالة الشبكة في اليمن (بينغ وهمي لكنه واقعي) -->
-<div align="center">
-  <h3>📡 Sana'a Network Status (Live simulation)</h3>
-  <table style="background-color:#0f0f1a; border-radius:22px; padding:10px; width:70%; box-shadow: inset 2px 2px 5px #000000, inset -2px -2px 5px #252535, 5px 5px 12px #050508;">
-    <tr>
-      <td>🔹 <b>yemen.net.ye</b> <code>ping 43ms · stable</code> <img src="https://img.shields.io/badge/uptime-99.2%25-2ecc71?style=flat-square"/></td>
-      <td>🔹 <b>tele-yemen.com</b> <code>ping 67ms · moderate</code> <img src="https://img.shields.io/badge/uptime-97.8%25-f39c12?style=flat-square"/></td>
-    </tr>
-    <tr>
-      <td>🔹 <b>yemen.net.ye (IPv6)</b> <code>timeout · unstable</code> <img src="https://img.shields.io/badge/status-partial-e74c3c?style=flat-square"/></td>
-      <td>🔹 <b>local gateway</b> <code>ping 2ms · perfect</code> <img src="https://img.shields.io/badge/latency-A+-2ecc71?style=flat-square"/></td>
-    </tr>
-  </table>
-  <sub>⏱️ Updated every 30 min via GitHub Actions (simulated data based on real patterns)</sub>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Sana'a Network Status | Live Monitoring</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(145deg, #0b1120 0%, #0a0f1a 100%);
+            font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, 'Roboto', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 2rem;
+        }
+
+        /* card container */
+        .network-card {
+            max-width: 760px;
+            width: 100%;
+            background: rgba(12, 18, 28, 0.75);
+            backdrop-filter: blur(2px);
+            border-radius: 2rem;
+            border: 1px solid rgba(66, 212, 182, 0.2);
+            box-shadow: 0 25px 45px -12px rgba(0, 0, 0, 0.6), 0 0 0 0.5px rgba(66, 212, 182, 0.1) inset;
+            overflow: hidden;
+            transition: all 0.2s ease;
+        }
+
+        /* header area */
+        .status-header {
+            background: rgba(0, 0, 0, 0.45);
+            padding: 1.4rem 2rem;
+            border-bottom: 1px solid rgba(66, 212, 182, 0.25);
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+        }
+
+        .title-section h1 {
+            font-size: 1.55rem;
+            font-weight: 600;
+            letter-spacing: -0.3px;
+            background: linear-gradient(135deg, #ffffff 0%, #b9f3ff 100%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+
+        .title-section .badge-live {
+            display: inline-block;
+            background: #0f2c2a;
+            padding: 0.2rem 0.7rem;
+            border-radius: 40px;
+            font-size: 0.7rem;
+            font-weight: 500;
+            margin-left: 0.75rem;
+            color: #2dd4bf;
+            border: 0.5px solid #2dd4bf60;
+            vertical-align: middle;
+        }
+
+        .sub {
+            font-size: 0.75rem;
+            color: #8b9bb5;
+            margin-top: 0.25rem;
+            letter-spacing: 0.2px;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .update-marker {
+            font-family: monospace;
+            background: #111a22;
+            padding: 0.2rem 0.65rem;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            color: #6c86a3;
+        }
+
+        /* table style */
+        .table-wrapper {
+            overflow-x: auto;
+            padding: 0 0.25rem;
+        }
+
+        .network-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            background: transparent;
+        }
+
+        .network-table th {
+            text-align: left;
+            padding: 1.2rem 1.5rem 0.7rem 1.8rem;
+            font-weight: 500;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            color: #6d86a8;
+            background: transparent;
+            border-bottom: 1px solid rgba(45, 212, 191, 0.2);
+        }
+
+        .network-table td {
+            padding: 1rem 1.5rem 1rem 1.8rem;
+            font-size: 0.95rem;
+            border-bottom: 1px solid rgba(45, 212, 191, 0.08);
+            color: #eef4ff;
+            font-weight: 450;
+        }
+
+        .service-name {
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .indicator {
+            width: 8px;
+            height: 8px;
+            border-radius: 10px;
+            display: inline-block;
+            box-shadow: 0 0 4px currentColor;
+        }
+
+        .indicator.green {
+            background: #2dd4bf;
+            box-shadow: 0 0 6px #2dd4bf;
+        }
+        .indicator.yellow {
+            background: #facc15;
+            box-shadow: 0 0 5px #facc15;
+        }
+        .indicator.red {
+            background: #f87171;
+            box-shadow: 0 0 5px #f87171;
+        }
+        .indicator.gray {
+            background: #5b6e8c;
+        }
+
+        .ping-value {
+            font-family: 'JetBrains Mono', 'Fira Code', monospace;
+            background: #0f1620;
+            padding: 0.2rem 0.6rem;
+            border-radius: 28px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            display: inline-block;
+            letter-spacing: 0.2px;
+            color: #b9e2e0;
+        }
+
+        .status-badge {
+            font-size: 0.7rem;
+            font-weight: 500;
+            padding: 0.2rem 0.65rem;
+            border-radius: 40px;
+            background: #111c24;
+            display: inline-block;
+            color: #bcd0f0;
+        }
+
+        .status-badge.stable {
+            background: #0b2a2a;
+            color: #5eead4;
+            border-left: 2px solid #2dd4bf;
+        }
+        .status-badge.unstable {
+            background: #2c1f1a;
+            color: #fda4af;
+            border-left: 2px solid #f87171;
+        }
+        .status-badge.moderate {
+            background: #2a281c;
+            color: #fde047;
+            border-left: 2px solid #facc15;
+        }
+        .status-badge.perfect {
+            background: #0b2a2a;
+            color: #a7f3d0;
+            border-left: 2px solid #2dd4bf;
+        }
+
+        .uptime-row {
+            font-size: 0.75rem;
+            color: #94a9ce;
+        }
+
+        .latency-grade {
+            font-family: monospace;
+            font-weight: 700;
+            background: linear-gradient(145deg, #1f2a3a, #141e2c);
+            padding: 0.25rem 0.7rem;
+            border-radius: 30px;
+            font-size: 0.75rem;
+            letter-spacing: 1px;
+        }
+
+        .footer-note {
+            background: #03060c70;
+            padding: 0.9rem 2rem;
+            border-top: 1px solid rgba(66, 212, 182, 0.15);
+            font-size: 0.7rem;
+            color: #5e7897;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .live-sim {
+            font-family: monospace;
+            background: #0f1722;
+            padding: 0.2rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.65rem;
+            color: #2dd4bf;
+        }
+
+        @media (max-width: 580px) {
+            body {
+                padding: 1rem;
+            }
+            .network-table th, .network-table td {
+                padding: 0.85rem 1rem 0.85rem 1.2rem;
+            }
+            .status-header {
+                padding: 1rem 1.2rem;
+            }
+            .title-section h1 {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="network-card">
+    <div class="status-header">
+        <div class="title-section">
+            <h1>
+                Sana'a Network Status 
+                <span class="badge-live">LIVE SIMULATION</span>
+            </h1>
+            <div class="sub">
+                <span>🔌 core telemetry · realtime metrics</span>
+                <span class="update-marker">⏱️ update: 5s drift</span>
+            </div>
+        </div>
+        <div class="live-sim">
+            🌐 yemen backbone
+        </div>
+    </div>
+
+    <div class="table-wrapper">
+        <table class="network-table">
+            <thead>
+                <tr>
+                    <th>Service / Endpoint</th>
+                    <th>Latency</th>
+                    <th>Status</th>
+                    <th>Uptime / Grade</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- yemen.net.ye - IPv4 -->
+                <tr>
+                    <td class="service-name">
+                        <span class="indicator green"></span>
+                        yemen.net.ye
+                        <span style="font-size:0.65rem; background:#0f1822; padding:2px 6px; border-radius:20px;">IPv4</span>
+                    </td>
+                    <td><span class="ping-value">43 ms</span></td>
+                    <td><span class="status-badge stable">● stable</span></td>
+                    <td class="uptime-row">uptime: 99.2%</td>
+                </tr>
+                <!-- yemen.net.ye - IPv6 -->
+                <tr>
+                    <td class="service-name">
+                        <span class="indicator red"></span>
+                        yemen.net.ye
+                        <span style="font-size:0.65rem; background:#0f1822; padding:2px 6px; border-radius:20px;">IPv6</span>
+                    </td>
+                    <td><span class="ping-value" style="background:#261a1f; color:#f9acbc;">timeout</span></td>
+                    <td><span class="status-badge unstable">⚠️ unstable</span></td>
+                    <td class="uptime-row">status: partial</td>
+                </tr>
+                <!-- tele-yemen.com -->
+                <tr>
+                    <td class="service-name">
+                        <span class="indicator yellow"></span>
+                        tele-yemen.com
+                    </td>
+                    <td><span class="ping-value">67 ms</span></td>
+                    <td><span class="status-badge moderate">◔ moderate</span></td>
+                    <td class="uptime-row">uptime: 97.8%</td>
+                </tr>
+                <!-- local gateway -->
+                <tr>
+                    <td class="service-name">
+                        <span class="indicator green"></span>
+                        local gateway
+                    </td>
+                    <td><span class="ping-value" style="background:#0e2a24; color:#6ee7d0;">2 ms</span></td>
+                    <td><span class="status-badge perfect">★ perfect</span></td>
+                    <td class="uptime-row"><span class="latency-grade">latency: A+</span></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="footer-note">
+        <span>🔄 live simulation — based on Sana'a IXP probes</span>
+        <span>📡 metrics: ping / icmp · route stability</span>
+    </div>
 </div>
-<br>
+</body>
+</html>
 
 <!-- القسم الفريد 2: عدادات تقدم اللغة بنمط Neumorphic -->
 <div align="center">
