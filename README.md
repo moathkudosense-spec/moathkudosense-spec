@@ -1,11 +1,11 @@
 <div align="center">
-  <img src="https://capsule-render.vercel.app/render?type=soft&color=0d1117&secondaryColor=58a6ff&height=150&section=header&text=MOATH%20KUDO&fontSize=70&fontAlignY=40&animation=twinkling" width="100%" />
+  <img src="https://capsule-render.vercel.app/render?type=soft&color=0d1117&secondaryColor=58a6ff&height=150&section=header&text=MOATH%20KUDO&fontSize=70&fontAlignY=40" width="100%" />
 
   <br/>
 
-  <code><img height="25" src="https://img.shields.io/badge/CYBERSECURITY-000?style=for-the-badge&logo=target&logoColor=white" /></code>
-  <code><img height="25" src="https://img.shields.io/badge/SYSTEM_ARCH-000?style=for-the-badge&logo=cpu&logoColor=white" /></code>
-  <code><img height="25" src="https://img.shields.io/badge/PYTHON_DEV-000?style=for-the-badge&logo=python&logoColor=white" /></code>
+  <img src="https://img.shields.io/badge/CYBERSECURITY-000?style=for-the-badge&logo=kali-linux&logoColor=58a6ff" />
+  <img src="https://img.shields.io/badge/SYSTEM_ARCH-000?style=for-the-badge&logo=cpu&logoColor=58a6ff" />
+  <img src="https://img.shields.io/badge/PYTHON_DEV-000?style=for-the-badge&logo=python&logoColor=58a6ff" />
 </div>
 
 ---
@@ -35,27 +35,20 @@
 
 ### 📊 Performance Metrics
 <div align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=moathkudosense-spec&theme=transparent&hide_border=true&show_icons=true&icon_color=58a6ff&text_color=c9d1d9&title_color=58a6ff&rank_icon=github" width="48%" />
+  <img src="https://github-readme-stats.vercel.app/api?username=moathkudosense-spec&theme=transparent&hide_border=true&show_icons=true&icon_color=58a6ff&text_color=c9d1d9&title_color=58a6ff" width="48%" />
   <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=moathkudosense-spec&theme=transparent&hide_border=true&layout=compact&text_color=c9d1d9&title_color=58a6ff" width="41%" />
 </div>
 
 <br/>
 
 <div align="center">
-  <img src="https://github-readme-activity-graph.vercel.app/graph?username=moathkudosense-spec&theme=react-dark&bg_color=0d1117&hide_border=true&color=58a6ff&line=58a6ff&point=ffffff&area=true&hide_grid=true" width="100%" />
+  <img src="https://github-readme-activity-graph.vercel.app/graph?username=moathkudosense-spec&theme=react-dark&bg_color=0d1117&hide_border=true&color=58a6ff" width="100%" />
 </div>
 
 ---
 
 <div align="center">
-  <img src="https://quotes-github-readme.vercel.app/api?type=horizontal&theme=transparent&text_color=8b949e" />
-  <br/>
   <sub>Integrated System v2.6 // moathkudosense-spec</sub>
-</div>
----
-
-<div align="center">
-  <img src="https://quotes-github-readme.vercel.app/api?type=horizontal&theme=dracula" />
 </div>
 <!--
 **moathkudosense-spec/moathkudosense-spec** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
