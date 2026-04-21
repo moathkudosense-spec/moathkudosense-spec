@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="https://capsule-render.vercel.app/render?type=soft&color=0d1117&secondaryColor=58a6ff&height=150&section=header&text=MOATH%20KUDO&fontSize=70&fontAlignY=40" width="100%" />
+  <img src="C:\Users\DarkSidePC\Pictures\image_mo.jpg" width="100%" />
 
   <br/>
 
