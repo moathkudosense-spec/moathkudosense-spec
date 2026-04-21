@@ -35,8 +35,8 @@
 
 ### 📊 Performance Metrics
 <div align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=moathkudosense-spec&theme=transparent&hide_border=true&show_icons=true&icon_color=58a6ff&text_color=c9d1d9&title_color=58a6ff" width="48%" />
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=moathkudosense-spec&theme=transparent&hide_border=true&layout=compact&text_color=c9d1d9&title_color=58a6ff" width="41%" />
+  <img src="C:\Users\DarkSidePC\Pictures\image_mo.jpg" width="48%" />
+  <img src="C:\Users\DarkSidePC\Pictures\image_mo.jpg" width="41%" />
 </div>
 
 <br/>
