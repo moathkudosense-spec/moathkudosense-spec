@@ -147,7 +147,7 @@
 <!-- تذييل مع عداد زوار فريد -->
 <div align="center">
   <br>
-  <img src="https://komarev.com/ghpvc/?username=moathkudosense_spec&label=👁️%20Neumorphic%20Visitors&color=bb86fc&style=flat-square" />
+  <img src="https://komarev.com/ghpvc/?username=moathkudosense-spec&label=👁️%20Neumorphic%20Visitors&color=bb86fc&style=flat-square" />
   <br><br>
   <svg width="400" height="30">
     <rect width="400" height="30" fill="none" rx="15" stroke="#bb86fc" stroke-width="1.5" stroke-dasharray="4 2" />
