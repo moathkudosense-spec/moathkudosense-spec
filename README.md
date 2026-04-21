@@ -83,12 +83,12 @@
 
 <!-- القسم الفريد 4: إحصائيات متقدمة (مع بطاقات نادرة) -->
 <div align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=moathkudosense_spec&show_icons=true&count_private=true&include_all_commits=true&theme=dark&bg_color=15152a&title_color=ffffff&icon_color=bb86fc&text_color=bbbbbb&border_color=2a2a3a&border_radius=20&ring_color=ff79c6" width="48%" />
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=moathkudosense_spec&layout=compact&theme=dark&bg_color=15152a&title_color=ffffff&text_color=bbbbbb&border_color=2a2a3a&border_radius=20&hide=html,css,javascript&langs_count=6" width="41%" />
+  <img src="https://github-readme-stats.vercel.app/api?username=moathkudosense-spec&show_icons=true&count_private=true&include_all_commits=true&theme=dark&bg_color=15152a&title_color=ffffff&icon_color=bb86fc&text_color=bbbbbb&border_color=2a2a3a&border_radius=20&ring_color=ff79c6" width="48%" />
+  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=moathkudosense-spec&layout=compact&theme=dark&bg_color=15152a&title_color=ffffff&text_color=bbbbbb&border_color=2a2a3a&border_radius=20&hide=html,css,javascript&langs_count=6" width="41%" />
 </div>
 <br>
 <div align="center">
-  <img src="https://github-profile-trophy.vercel.app/?username=moathkudosense_spec&theme=darkhub&no-frame=true&row=2&column=4&margin-w=8&margin-h=8" width="80%" />
+  <img src="https://github-profile-trophy.vercel.app/?username=moathkudosense-spec&theme=darkhub&no-frame=true&row=2&column=4&margin-w=8&margin-h=8" width="80%" />
 </div>
 
 <!-- القسم الفريد 5: Black Tools (الأدوات السوداء التي صنعها بنفسه) -->
