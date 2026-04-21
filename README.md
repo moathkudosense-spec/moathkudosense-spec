@@ -49,7 +49,7 @@
 
 <div align="center">
   <sub>Integrated System v2.6 // moathkudosense-spec</sub>
-</div>
+</div> 
 <!--
 **moathkudosense-spec/moathkudosense-spec** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
 
