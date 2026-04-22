@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>moath · network alchemist & firmware surgeon</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: radial-gradient(circle at 20% 30%, #0a0f1e, #03060c);
+            font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, 'Roboto', sans-serif;
+            padding: 2rem 1.5rem;
+            color: #eef5ff;
+        }
+
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        /* cards style */
+        .card {
+            background: rgba(12, 18, 28, 0.65);
+            backdrop-filter: blur(12px);
+            border-radius: 2rem;
+            border: 1px solid rgba(45, 212, 191, 0.2);
+            padding: 1.5rem;
+            margin-bottom: 1.8rem;
+            transition: all 0.2s;
+        }
+
+        .card:hover {
+            border-color: #2dd4bf80;
+        }
+
+        .grid-2col {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 1.8rem;
+        }
+
+        /* heatmap squares */
+        .heatmap-grid {
+            display: grid;
+            grid-template-columns: repeat(30, 1fr);
+            gap: 4px;
+            margin: 1rem 0;
+        }
+
+        .heatmap-day {
+            aspect-ratio: 1 / 1;
+            background: #1a2332;
+            border-radius: 3px;
+            transition: 0.1s;
+        }
+
+        .heatmap-day.level-1 { background: #0e4429; }
+        .heatmap-day.level-2 { background: #006d32; }
+        .heatmap-day.level-3 { background: #26a641; }
+        .heatmap-day.level-4 { background: #39d353; }
+
+        /* yemen panel (bars) */
+        .yemen-metrics {
+            margin: 1.2rem 0;
+        }
+
+        .metric-row {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .metric-label {
+            width: 140px;
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+
+        .metric-bar-container {
+            flex: 1;
+            background: #0f1722;
+            border-radius: 20px;
+            height: 32px;
+            overflow: hidden;
+        }
+
+        .metric-bar {
+            background: linear-gradient(90deg, #2dd4bf, #14b8a6);
+            width: 0%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding-right: 10px;
+            color: #03060c;
+            font-weight: bold;
+            font-size: 0.8rem;
+            border-radius: 20px;
+            transition: width 0.3s ease;
+        }
+
+        .ping-value-text {
+            font-family: monospace;
+            font-size: 0.8rem;
+            background: #0f1822;
+            padding: 0.2rem 0.6rem;
+            border-radius: 20px;
+        }
+
+        .status-tag {
+            font-size: 0.7rem;
+            padding: 0.2rem 0.7rem;
+            border-radius: 40px;
+        }
+
+        .status-green { background: #0b2a2a; color: #5eead4; }
+        .status-yellow { background: #2a281c; color: #fde047; }
+        .status-red { background: #2c1f1a; color: #fda4af; }
+
+        /* live test button & results */
+        .network-test-area {
+            margin-top: 1.5rem;
+            text-align: center;
+        }
+
+        .live-test-btn {
+            background: linear-gradient(145deg, #1e2a3a, #0f1722);
+            border: 1px solid #2dd4bf80;
+            color: #2dd4bf;
+            padding: 0.8rem 2rem;
+            border-radius: 60px;
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            backdrop-filter: blur(4px);
+        }
+
+        .live-test-btn:hover {
+            background: #2dd4bf20;
+            transform: scale(1.02);
+            border-color: #2dd4bf;
+        }
+
+        .test-results {
+            margin-top: 1rem;
+            background: #0b111ccc;
+            border-radius: 1.5rem;
+            padding: 1rem;
+            text-align: left;
+            font-family: monospace;
+            font-size: 0.9rem;
+            border: 1px solid #2dd4bf30;
+            display: none;
+        }
+
+        .test-results.show {
+            display: block;
+        }
+
+        .result-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.4rem 0;
+            border-bottom: 1px solid #2dd4bf20;
+        }
+
+        .copy-dotfiles {
+            background: #0f1722;
+            border: 1px solid #5e7897;
+            padding: 0.6rem 1.2rem;
+            border-radius: 40px;
+            display: inline-block;
+            cursor: pointer;
+            transition: 0.1s;
+        }
+
+        .copy-dotfiles:hover {
+            background: #2dd4bf20;
+            border-color: #2dd4bf;
+        }
+
+        .visitor-badge {
+            background: #111a22;
+            display: inline-block;
+            padding: 0.2rem 0.8rem;
+            border-radius: 40px;
+            font-family: monospace;
+        }
+
+        footer {
+            text-align: center;
+            font-size: 0.7rem;
+            color: #5e7897;
+            margin-top: 2rem;
+            border-top: 1px solid #2dd4bf20;
+            padding-top: 1.5rem;
+        }
+
+        @media (max-width: 700px) {
+            body { padding: 1rem; }
+            .metric-label { width: 100px; }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <!-- Contribution heatmap + achievements row -->
+            <h3>🏆 Recent GitHub Achievements</h3>
+            <ul style="margin: 1rem 0 0 1.2rem; line-height: 1.7;">
+                <li>Pull Shark x2</li>
+                <li>Quickdraw</li>
+                <li>YOLO</li>
+            </ul>
+            <div style="margin-top: 1.2rem;">
+                <h3>🔑 PGP Public Key (Fingerprint)</h3>
+                <pre style="background:#0f1822; padding:0.5rem; border-radius:12px; font-size:0.7rem; margin-top:0.5rem;">3E5F 8A9C 2B14
+7F92 1A8E 5C4B
+9D6F 8A21</pre>
+                <div style="font-size:0.7rem; margin-top:0.3rem;">keyserver.ubuntu.com</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Recently active on -->
+    <div class="card">
+        <h3>📡 Recently active on</h3>
+        <div style="display: flex; flex-wrap: wrap; gap: 1.5rem; margin-top: 1rem;">
+            <div><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/lua/lua-original.svg" width="28" style="filter: invert(0.8);"> Lua · mpv scripts</div>
+            <div><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" width="28"> Python</div>
+            <div><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/azure/azure-original.svg" width="28"> HoYo-Api</div>
+            <div><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/powershell/powershell-original.svg" width="28"> PowerShell dotfiles</div>
+        </div>
+    </div>
+
+    <!-- YEMEN NETWORK STATUS PANEL (above Copy my dotfiles) -->
+    <div class="card" id="yemenPanel">
+        <h3>🇾🇪 Yemen Network Latency · Real-time snapshot</h3>
+        <div class="yemen-metrics">
+            <div class="metric-row">
+                <span class="metric-label">🌐 yemen.net.ye (IPv4)</span>
+                <div class="metric-bar-container"><div class="metric-bar" id="barYemenIpv4" style="width: 43%;">43 ms</div></div>
+                <span class="status-tag status-green">stable</span>
+            </div>
+            <div class="metric-row">
+                <span class="metric-label">⚠️ yemen.net.ye (IPv6)</span>
+                <div class="metric-bar-container"><div class="metric-bar" style="width: 100%; background:#5e6f8d;">timeout</div></div>
+                <span class="status-tag status-red">unstable</span>
+            </div>
+            <div class="metric-row">
+                <span class="metric-label">📡 tele-yemen.com</span>
+                <div class="metric-bar-container"><div class="metric-bar" id="barTeleYemen" style="width: 67%; background:#facc15; color:#0a0f1a;">67 ms</div></div>
+                <span class="status-tag status-yellow">moderate</span>
+            </div>
+            <div class="metric-row">
+                <span class="metric-label">🏠 local gateway</span>
+                <div class="metric-bar-container"><div class="metric-bar" id="barLocalGateway" style="width: 2%; background:#2dd4bf;">2 ms</div></div>
+                <span class="status-tag status-green">perfect</span>
+            </div>
+        </div>
+        <div style="font-size:0.7rem; color:#8ba3c7;">⬆️ بناءً على متوسط زمن الاستجابة (ms) – محاكاة واقعية لشبكة صنعاء</div>
+    </div>
+
+    <!-- COPY MY DOTFILES button -->
+    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; margin-bottom: 1rem;">
+        <div class="copy-dotfiles" id="copyDotfilesBtn">📋 COPY MY DOTFILES</div>
+        <div class="visitor-badge">👁️ Neumorphic Visitors &nbsp; <strong>14</strong></div>
+    </div>
+
+    <!-- LIVE NETWORK START BUTTON + results -->
+    <div class="network-test-area">
+        <button class="live-test-btn" id="liveNetworkBtn">⚡ Live Network Start · اختبار شبكتك الآن</button>
+        <div id="testResults" class="test-results">
+            <div class="result-item"><span>🌍 Ping (متوسط)</span><span id="pingResult">-- ms</span></div>
+            <div class="result-item"><span>📊 Jitter</span><span id="jitterResult">-- ms</span></div>
+            <div class="result-item"><span>⬇️ سرعة التحميل (Download)</span><span id="speedResult">-- Mbps</span></div>
+            <div class="result-item"><span>🖥️ وقت الاختبار</span><span id="testTimestamp">--</span></div>
+        </div>
+    </div>
+    <footer>⚡ اختبار شبكة حقيقي (ping via HTTPS + speed via Cloudflare) | يعكس اتصالك الفعلي</footer>
+</div>
+
+<script>
+    // ------------------------------
+    // 1. Contribution heatmap simulation
+    // ------------------------------
+    const heatmapGrid = document.getElementById('heatmapGrid');
+    for (let i = 0; i < 30; i++) {
+        const level = Math.floor(Math.random() * 5); // 0-4
+        const div = document.createElement('div');
+        div.className = `heatmap-day level-${level}`;
+        heatmapGrid.appendChild(div);
+    }
+
+    // ------------------------------
+    // 2. Copy dotfiles functionality
+    // ------------------------------
+    document.getElementById('copyDotfilesBtn').addEventListener('click', () => {
+        const dummyDotfiles = `# moath's dotfiles
+alias ll='ls -al'
+export PATH="$HOME/.local/bin:$PATH"
+# neovim config
+set number
+set tabstop=4`;
+        navigator.clipboard.writeText(dummyDotfiles).then(() => {
+            const btn = document.getElementById('copyDotfilesBtn');
+            const originalText = btn.innerText;
+            btn.innerText = '✓ COPIED!';
+            setTimeout(() => btn.innerText = originalText, 1500);
+        }).catch(() => alert("Could not copy"));
+    });
+
+    // ------------------------------
+    // 3. REAL NETWORK TEST (Ping + Speed)
+    // ------------------------------
+    const liveBtn = document.getElementById('liveNetworkBtn');
+    const resultsDiv = document.getElementById('testResults');
+    const pingSpan = document.getElementById('pingResult');
+    const jitterSpan = document.getElementById('jitterResult');
+    const speedSpan = document.getElementById('speedResult');
+    const timeSpan = document.getElementById('testTimestamp');
+
+    // Helper: measure latency to a given URL (fetch with timestamp)
+    async function measureLatency(url, samples = 3) {
+        let times = [];
+        for (let i = 0; i < samples; i++) {
+            const start = performance.now();
+            try {
+                await fetch(url, { method: 'HEAD', cache: 'no-store', mode: 'no-cors' });
+                const end = performance.now();
+                times.push(end - start);
+            } catch(e) {
+                // fallback: some endpoints might block, but we still measure elapsed time for error? we'll push a large number
+                times.push(999);
+            }
+            await new Promise(r => setTimeout(r, 200));
+        }
+        // filter out extreme outliers? keep as is
+        const valid = times.filter(t => t < 2000);
+        if (valid.length === 0) return { avg: 999, jitter: 0 };
+        const avg = valid.reduce((a,b) => a+b,0)/valid.length;
+        const jitter = Math.sqrt(valid.map(t => Math.pow(t - avg,2)).reduce((a,b)=>a+b,0)/valid.length);
+        return { avg: Math.round(avg), jitter: Math.round(jitter) };
+    }
+
+    // Speed test using Cloudflare's random bytes endpoint (500KB)
+    async function measureDownloadSpeed() {
+        const fileSizeBytes = 500 * 1024; // 500KB
+        const url = 'https://speed.cloudflare.com/__down?bytes=500000';
+        const start = performance.now();
+        try {
+            const response = await fetch(url, { cache: 'no-store' });
+            const data = await response.arrayBuffer();
+            const end = performance.now();
+            const durationSec = (end - start) / 1000;
+            const bitsLoaded = data.byteLength * 8;
+            const speedMbps = (bitsLoaded / durationSec) / (1024 * 1024);
+            return Math.round(speedMbps * 10) / 10;
+        } catch (err) {
+            console.warn("speed test failed", err);
+            return null;
+        }
+    }
+
+    async function runFullTest() {
+        // show loading state
+        liveBtn.disabled = true;
+        liveBtn.innerHTML = "⏳ جاري الاختبار ...";
+        resultsDiv.classList.remove('show');
+        
+        // 1. Ping test to two reliable endpoints (Google & Cloudflare)
+        const googleLatency = await measureLatency('https://www.google.com/generate_204', 3);
+        const cfLatency = await measureLatency('https://cloudflare.com/cdn-cgi/trace', 3);
+        const avgPing = Math.round((googleLatency.avg + cfLatency.avg) / 2);
+        const avgJitter = Math.round((googleLatency.jitter + cfLatency.jitter) / 2);
+        
+        // 2. Speed test (download)
+        let speed = await measureDownloadSpeed();
+        if (speed === null) speed = "غير متاح";
+        else speed = speed + " Mbps";
+        
+        // update UI
+        pingSpan.innerText = avgPing + " ms";
+        jitterSpan.innerText = avgJitter + " ms";
+        speedSpan.innerText = (typeof speed === 'string') ? speed : speed + " Mbps";
+        timeSpan.innerText = new Date().toLocaleTimeString();
+        
+        resultsDiv.classList.add('show');
+        liveBtn.disabled = false;
+        liveBtn.innerHTML = "⚡ Live Network Start · اختبار شبكتك الآن";
+    }
+    
+    liveBtn.addEventListener('click', runFullTest);
+    
+    // optional: update Yemen panel bars dynamically (cosmetic jitter)
+    function updateYemenBars() {
+        // just to match previous design but keep original static values
+        // values already in html: 43%, 67%, 2% etc.
+        // we keep them as they represent Yemen metrics.
+    }
+    updateYemenBars();
+    
+    // Also add a small tooltip that test is real
+    console.log("ready — real network test with ping & speed");
+</script>
+</body>
+</html>
