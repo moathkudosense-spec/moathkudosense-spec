@@ -78,48 +78,6 @@
 <div align="center">
   <img src="https://github-readme-activity-graph.vercel.app/graph?username=moathkudosense-spec&theme=github-dark&bg_color=15152a&color=bb86fc&line=c792ea&point=ffffff&area=true&hide_border=true&radius=16" width="90%" />
 </div>
-
-<!-- القسم الفريد 7: آخر الإنجازات + مفتاح PGP -->
-<div align="center">
-  <table style="background-color:#15152a; border-radius:28px; padding:12px; width:90%;">
-    <tr>
-      <td width="50%">
-        🏆 <b>Recent GitHub Achievements</b><br>
-        <img src="https://github.githubassets.com/images/modules/profile/achievements/pull-shark-default.png" width="40" /> Pull Shark x2
-        <img src="https://github.githubassets.com/images/modules/profile/achievements/quickdraw-default.png" width="40" /> Quickdraw
-        <img src="https://github.githubassets.com/images/modules/profile/achievements/yolo-default.png" width="40" /> YOLO
-      </td>
-      <td width="50%">
-        🔐 <b>PGP Public Key (Fingerprint)</b><br>
-        <code>3E5F 8A9C 2B14 7F92  1A8E 5C4B 9D6F 8A21</code><br>
-        <sub>Available on keyserver.ubuntu.com</sub>
-      </td>
-    </tr>
-  </table>
-</div>
-
-<!-- القسم الفريد 8: أحدث 3 مشاريع مفتوحة المصدر تم زيارتها -->
-<h2 align="center">📂 Recently active on</h2>
-<div align="center">
-  <img src="https://img.shields.io/badge/Lua-mpv--player--scripts-2C2D72?style=flat-square&logo=lua" />
-  <img src="https://img.shields.io/badge/Python-HoYo--API-3776AB?style=flat-square&logo=python" />
-  <img src="https://img.shields.io/badge/PowerShell-dotfiles-5391FE?style=flat-square&logo=powershell" />
-  <br><br>
-  <a href="#"><img src="https://img.shields.io/badge/📋_Copy_my_dotfiles-181717?style=for-the-badge&logo=github&logoColor=white" /></a>
-  <a href="#"><img src="https://img.shields.io/badge/📡_Live_Network_Stats-00B5AD?style=for-the-badge&logo=grafana&logoColor=white" /></a>
-</div>
-
-<!-- تذييل مع عداد زوار فريد -->
-<div align="center">
-  <br>
-  <img src="https://komarev.com/ghpvc/?username=moathkudosense-spec&label=👁️%20Neumorphic%20Visitors&color=bb86fc&style=flat-square" />
-  <br><br>
-  <svg width="400" height="30">
-    <rect width="400" height="30" fill="none" rx="15" stroke="#bb86fc" stroke-width="1.5" stroke-dasharray="4 2" />
-    <text x="200" y="20" font-family="monospace" font-size="12" fill="#bb86fc" text-anchor="middle">⚡ Last firmware tweak: 2026-04-21 21:01 UTC+3</text>
-  </svg>
-  <p><i>“Every line of code is a signature.” — Moath</i></p>
-</div>
 <!--
 **moathkudosense-spec/moathkudosense-spec** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
 
